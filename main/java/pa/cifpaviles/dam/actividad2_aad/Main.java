@@ -40,14 +40,14 @@ public class Main {
                         case 1 -> {
                             //LÓGICA DE REGISTRO DE PEREGRINO
                             System.out.println("REGISTRARSE");
-
+                            do {
                             System.out.println("Introduzca su nombre");
                             nombre = scanner.nextLine();
 
                             System.out.println("Introduzca su nacionalidad");
                             nacionalidad = scanner.nextLine();
                             existe = true;
-                            do {
+                            
                                 try {
                                     existe = Sistema.Verificacion(conexion, nombre, nacionalidad);
                                 } catch (SQLException e) {
