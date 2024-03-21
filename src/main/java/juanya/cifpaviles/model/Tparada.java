@@ -1,34 +1,25 @@
 package juanya.cifpaviles.model;
 
-import jakarta.persistence.*;
 
-@Entity
-@Table(name = "tparada")
 public class Tparada {
-    @Id
-    @Column(name = "pkid", nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
 
-    @Column(name = "cnombre", nullable = false)
+    private int id;
     private String cnombre;
-
-    @Column(name = "cregion", nullable = false, length = 1)
-    private Character cregion;
+    private char cregion;
 
     public Tparada() {
     }
 
-    public Tparada(String cnombre, Character cregion) {
+    public Tparada(String cnombre, char cregion) {
         this.cnombre = cnombre;
         this.cregion = cregion;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -40,11 +31,11 @@ public class Tparada {
         this.cnombre = cnombre;
     }
 
-    public Character getCregion() {
+    public char getCregion() {
         return cregion;
     }
 
-    public void setCregion(Character cregion) {
+    public void setCregion(char cregion) {
         this.cregion = cregion;
     }
 

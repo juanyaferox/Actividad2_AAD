@@ -1,52 +1,33 @@
 package juanya.cifpaviles.model;
 
-import jakarta.persistence.*;
 
-@Entity
-@Table(name = "tperegrino")
 public class Tperegrino {
-    @Id
-    @Column(name = "pkfkid", nullable = false)
-    private Integer id;
 
-    @MapsId
-    @OneToOne(fetch = FetchType.EAGER, optional = false, cascade = CascadeType.ALL)//me cago en los muertos del cascade
-                                                                            //literalmente estuve 3 horas por
-                                                                        //esta MIERDA QUE ME HACIA FALTA Y NO LO SABIA
-    @JoinColumn(name = "pkfkid", nullable = false)
-    private Tcarnet tcarnet;
-
-    @Column(name = "cnombre", nullable = false)
+    private int id;
     private String cnombre;
-
-    @Column(name = "cnacionalidad", nullable = false)
     private String cnacionalidad;
 
     public Tperegrino() {
     }
 
-    public Tperegrino(Integer id, Tcarnet tcarnet, String cnombre, String cnacionalidad) {
+    public Tperegrino(int id, Tcarnet tcarnet, String cnombre, String cnacionalidad) {
         this.id = id;
-        this.tcarnet = tcarnet;
+
         this.cnombre = cnombre;
         this.cnacionalidad = cnacionalidad;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Tcarnet getTcarnet() {
-        return tcarnet;
-    }
 
-    public void setTcarnet(Tcarnet tcarnet) {
-        this.tcarnet = tcarnet;
-    }
+
+
 
     public String getCnombre() {
         return cnombre;
@@ -68,7 +49,6 @@ public class Tperegrino {
     public String toString() {
         return "Tperegrino{" +
                 "id=" + id +
-                ", tcarnet=" + tcarnet +
                 ", cnombre='" + cnombre + '\'' +
                 ", cnacionalidad='" + cnacionalidad + '\'' +
                 '}';

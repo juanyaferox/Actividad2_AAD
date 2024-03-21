@@ -1,58 +1,48 @@
 package juanya.cifpaviles.model;
 
-import jakarta.persistence.*;
-
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "tcarnet")
 public class Tcarnet {
-    @Id
-    @Column(name = "pkid",  nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
 
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "fkid_parada", nullable = false)
-    private Tparada fkidParada;
-
-
-    @Column(name = "fechaexp", nullable = false)
+    private int id;
+    private int fkidParada;
     private LocalDate fechaexp;
-
-    @Column(name = "nvips", nullable = false, columnDefinition = "int default 0")
-    private Integer nvips;
-
-    @Column(name = "distancia", nullable = false, columnDefinition = "double default 0.0")
-    private Double distancia;
+    private int nvips;
+    private double distancia;
 
     public Tcarnet() {
     }
-
-    public Tcarnet(Tparada fkidParada, LocalDate fechaexp, Integer nvips, Double distancia) {
+    public Tcarnet(int id,int fkidParada, LocalDate fechaexp, int nvips, double distancia) {
+        this.id = id;
+        this.fkidParada = fkidParada;
+        this.fechaexp = fechaexp;
+        this.nvips = nvips;
+        this.distancia = distancia;
+    }
+    public Tcarnet(int fkidParada, LocalDate fechaexp, int nvips, double distancia) {
         this.fkidParada = fkidParada;
         this.fechaexp = fechaexp;
         this.nvips = nvips;
         this.distancia = distancia;
     }
 
-    public Tcarnet(Tparada fkidParada, LocalDate fechaexp) {
+    public Tcarnet(int fkidParada, LocalDate fechaexp) {
         this(fkidParada, fechaexp, 0, 0.0);
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Tparada getFkidParada() {
+    public int getFkidParada() {
         return fkidParada;
     }
 
-    public void setFkidParada(Tparada fkidParada) {
+    public void setFkidParada(int fkidParada) {
         this.fkidParada = fkidParada;
     }
 
@@ -64,19 +54,19 @@ public class Tcarnet {
         this.fechaexp = fechaexp;
     }
 
-    public Integer getNvips() {
+    public int getNvips() {
         return nvips;
     }
 
-    public void setNvips(Integer nvips) {
+    public void setNvips(int nvips) {
         this.nvips = nvips;
     }
 
-    public Double getDistancia() {
+    public double getDistancia() {
         return distancia;
     }
 
-    public void setDistancia(Double distancia) {
+    public void setDistancia(double distancia) {
         this.distancia = distancia;
     }
 

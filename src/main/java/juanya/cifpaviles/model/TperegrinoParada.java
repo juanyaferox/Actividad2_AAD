@@ -1,44 +1,32 @@
 package juanya.cifpaviles.model;
 
-import jakarta.persistence.*;
 
-@Entity
-@Table(name = "tperegrino_parada")
-@IdClass(TperegrinoParadaId.class)
 public class TperegrinoParada {
 
-    @Id
-    @ManyToOne(fetch = FetchType.EAGER, optional = false,cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "pkfkid_parada", nullable = false)
-    private Tparada pkfkidParada;
+    private int pkfkid_parada;
+    private int pkfkid_peregrino;
 
-    @Id
-    @ManyToOne(fetch = FetchType.EAGER, optional = false,cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "pkfkid_peregrino", nullable = false)
-    private Tperegrino pkfkidPeregrino;
+    public TperegrinoParada(int pkfkid_parada, int pkfkid_peregrino) {
+        this.pkfkid_parada = pkfkid_parada;
+        this.pkfkid_peregrino = pkfkid_peregrino;
+    }
 
     public TperegrinoParada() {
     }
 
-    public TperegrinoParada(Tparada pkfkidParada, Tperegrino pkfkidPeregrino) {
-        this.pkfkidParada = pkfkidParada;
-        this.pkfkidPeregrino = pkfkidPeregrino;
+    public int getPkfkid_parada() {
+        return pkfkid_parada;
     }
 
-    public Tparada getPkfkidParada() {
-        return pkfkidParada;
+    public void setPkfkid_parada(int pkfkid_parada) {
+        this.pkfkid_parada = pkfkid_parada;
     }
 
-    public void setPkfkidParada(Tparada pkfkidParada) {
-        this.pkfkidParada = pkfkidParada;
+    public int getPkfkid_peregrino() {
+        return pkfkid_peregrino;
     }
 
-    public Tperegrino getPkfkidPeregrino() {
-        return pkfkidPeregrino;
+    public void setPkfkid_peregrino(int pkfkid_peregrino) {
+        this.pkfkid_peregrino = pkfkid_peregrino;
     }
-
-    public void setPkfkidPeregrino(Tperegrino pkfkidPeregrino) {
-        this.pkfkidPeregrino = pkfkidPeregrino;
-    }
-
 }

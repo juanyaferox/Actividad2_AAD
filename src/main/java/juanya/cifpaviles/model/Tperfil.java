@@ -1,29 +1,19 @@
 package juanya.cifpaviles.model;
 
-import jakarta.persistence.*;
 
-@Entity
-@Table(name = "tperfil")
 public class Tperfil {
-    @Id
-    @Column(name = "pkid_usuario", nullable = false)
+
     private String pkidUsuario;
 
-    @Column(name = "cpassword", nullable = false)
     private String cpassword;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "fkid_peregrino")
-    private Tperegrino fkidPeregrino;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "fkid_parada")
-    private Tparada fkidParada;
+    private int fkidPeregrino;
+    private int fkidParada;
 
     public Tperfil() {
     }
 
-    public Tperfil(String pkidUsuario, String cpassword, Tperegrino fkidPeregrino, Tparada fkidParada) {
+    public Tperfil(String pkidUsuario, String cpassword, int fkidPeregrino, int fkidParada) {
         this.pkidUsuario = pkidUsuario;
         this.cpassword = cpassword;
         this.fkidPeregrino = fkidPeregrino;
@@ -46,19 +36,19 @@ public class Tperfil {
         this.cpassword = cpassword;
     }
 
-    public Tperegrino getFkidPeregrino() {
+    public int getFkidPeregrino() {
         return fkidPeregrino;
     }
 
-    public void setFkidPeregrino(Tperegrino fkidPeregrino) {
+    public void setFkidPeregrino(int fkidPeregrino) {
         this.fkidPeregrino = fkidPeregrino;
     }
 
-    public Tparada getFkidParada() {
+    public int getFkidParada() {
         return fkidParada;
     }
 
-    public void setFkidParada(Tparada fkidParada) {
+    public void setFkidParada(int fkidParada) {
         this.fkidParada = fkidParada;
     }
 

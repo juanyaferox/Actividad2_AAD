@@ -1,29 +1,17 @@
 package juanya.cifpaviles.model;
 
-import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "testancia")
 public class Testancia {
-    @Id
-    @Column(name = "pkid", nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "fkid_parada", nullable = false)
     private Tparada fkidParada;
 
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "fkid_peregrino", nullable = false)
     private Tperegrino fkidPeregrino;
 
-    @Column(name = "fecha", nullable = false)
     private LocalDate fecha;
 
-    @Column(name = "vip", nullable = false, columnDefinition = "boolean default false")
     private Boolean vip = false;
 
     public Testancia() {
